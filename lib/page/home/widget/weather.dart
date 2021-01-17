@@ -12,7 +12,7 @@ class WeatherWidget extends StatefulWidget {
 }
 
 class _WeatherWidgetState extends State<WeatherWidget> {
-  ScrollController scrollController = ScrollController();
+  ScrollController scrollController;
   @override
   void initState() {
     super.initState();
