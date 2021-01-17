@@ -1,0 +1,10 @@
+{
+  "appName": "測試",
+  "themeMode": "當前主題為{mode}模式",
+  "darkColor": "深色",
+  "lightColor": "淺色",
+  "changeLanguage": "切換語言為英文",
+  "home": "首頁",
+  "cityManagement": "城市管理",
+  "currentCity": "當前城市"
+}

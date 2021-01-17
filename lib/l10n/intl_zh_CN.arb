@@ -1,0 +1,10 @@
+{
+  "appName": "测试",
+  "themeMode": "当前主题为{mode}模式",
+  "darkColor": "深色",
+  "lightColor": "浅色",
+  "changeLanguage": "切换语言为英文",
+  "home": "首页",
+  "cityManagement": "城市管理",
+  "currentCity": "当前城市"
+}

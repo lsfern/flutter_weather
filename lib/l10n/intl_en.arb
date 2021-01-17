@@ -1,0 +1,10 @@
+{
+  "appName": "Test",
+  "themeMode": "The current theme is {mode} mode",
+  "darkColor": "darkColor",
+  "lightColor": "lightColor",
+  "changeLanguage": "Switch language to Chinese",
+  "home": "Home",
+  "cityManagement": "City management",
+  "currentCity": "Current City"
+}
