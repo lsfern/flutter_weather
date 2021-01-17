@@ -16,6 +16,7 @@ import 'package:oktoast/oktoast.dart';
 
 import 'bloc_observer.dart';
 
+// TODO 全局主题和系统语言切换测试
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = SimpleBlocObserver();
