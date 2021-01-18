@@ -19,8 +19,10 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      // 获取系统颜色模式并应用到app
       context.read<ThemeBloc>().add(
           ThemeColorChanged(Util.getAppBrightness(context) == Brightness.dark));
+      // 请求首页数据
       context.read<WeatherBloc>().add(WeatherRequested(cityName: "海淀"));
       timer = Timer.periodic(Duration(seconds: 1), (timer) {
         if (num == 1) {
