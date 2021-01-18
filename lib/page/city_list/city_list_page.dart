@@ -36,7 +36,8 @@ class CityListPage extends StatelessWidget {
                                   Row(
                                     children: [
                                       SizedBox(width: 10),
-                                      Text(state.weatherList[index].data[0].wea),
+                                      Text(
+                                          state.weatherList[index].data[0].wea),
                                       SizedBox(width: 20),
                                       Expanded(
                                         child: Column(
@@ -74,36 +75,25 @@ class CityListPage extends StatelessWidget {
             height: 10,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               BlocBuilder<LanguageBloc, LanguageState>(
-                builder: (context, state) => FlatButton(
-                    onPressed: () => context
+                builder: (context, state) => InkWell(
+                    onTap: () => context
                         .read<LanguageBloc>()
                         .add(LanguageChanged(locale: null)),
                     child: Text(S.of(context).changeLanguage)),
               ),
               const SizedBox(width: 20),
-              BlocConsumer<ThemeBloc, ThemeState>(
-                  listenWhen: (prevState, nextState) =>
-                  prevState.dark != nextState.dark,
-                  // 用于监听状态做一些操作
-                  listener: (context, themeState) {
-                    // showToast(
-                    //     S.of(context).themeMode(
-                    //         "${themeState.dark ? S.of(context).darkColor : S.of(context).lightColor}"),
-                    //     position: ToastPosition.bottom);
-                  },
-                  builder: (context, state) {
-                    return Expanded(
-                      child: FlatButton(
-                          onPressed: () => context
-                              .read<ThemeBloc>()
-                              .add(ThemeColorChanged(!state.dark)),
-                          child: Text(
-                            "${!state.dark ? S.of(context).darkColor : S.of(context).lightColor}",
-                          )),
-                    );
-                  }),
+              BlocBuilder<ThemeBloc, ThemeState>(builder: (context, state) {
+                return InkWell(
+                    onTap: () => context
+                        .read<ThemeBloc>()
+                        .add(ThemeColorChanged(!state.dark)),
+                    child: Text(
+                      "${!state.dark ? S.of(context).darkColor : S.of(context).lightColor}",
+                    ));
+              }),
               InkWell(
                 onTap: () => context
                     .read<WeatherBloc>()

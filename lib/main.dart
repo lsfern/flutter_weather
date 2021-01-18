@@ -109,9 +109,9 @@ class _MyAppState extends State<MyApp> {
                                 } else {
                                   _useLocale = locale;
                                 }
-                                // context
-                                //     .read<LanguageBloc>()
-                                //     .add(LanguageChanged(locale: _useLocale));
+                                context
+                                    .read<LanguageBloc>()
+                                    .add(LanguageChanged(locale: _useLocale));
                                 return _useLocale;
                               },
                               debugShowCheckedModeBanner: false,
