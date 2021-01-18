@@ -30,7 +30,7 @@ dependencies:
   connectivity: ^2.0.0
   oktoast: ^2.3.2
   dio: ^3.0.10
-
+  rxdart: ^0.25.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0

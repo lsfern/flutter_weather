@@ -6,12 +6,30 @@ import 'package:flutter_app/api/weather_repository.dart';
 import 'package:flutter_app/bean/weather.dart';
 import 'package:meta/meta.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:rxdart/rxdart.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc() : super(WeatherInitial());
+
+  @override
+  Stream<Transition<WeatherEvent, WeatherState>> transformEvents(
+    Stream<WeatherEvent> events,
+    TransitionFunction<WeatherEvent, WeatherState> transitionFn,
+  ) {
+    //  事件在1秒之内多次调用只会响应最后一次
+    return super.transformEvents(
+      events.debounceTime(const Duration(milliseconds: 1000)),
+      transitionFn,
+    );
+    //  事件在1秒之内多次调用只会响应第一次
+    return super.transformEvents(
+      events.throttleTime(const Duration(milliseconds: 1000)),
+      transitionFn,
+    );
+  }
 
   @override
   Stream<WeatherState> mapEventToState(
@@ -63,6 +81,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   /// 添加城市天气信息
   Stream<WeatherState> mapEventToWeatherCityState(
       WeatherCityAdded event) async* {
+    print("event is WeatherCityAdded");
     List<Weather> currentWeatherList = state.weatherList;
     String cityName = event.cityName;
     for (Weather weather in currentWeatherList) {
