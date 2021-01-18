@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     print("Home build");
     return Scaffold(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Theme.of(context).primaryColor,
         body: BlocBuilder<WeatherBloc, WeatherState>(
           buildWhen: (prevState, nextState) {
             if (prevState.weatherList == null) return true;

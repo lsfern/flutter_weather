@@ -79,7 +79,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                         SizedBox(height: 40),
                         line(context),
                         SizedBox(
-                          height: 100,
+                          height: 102,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
@@ -201,7 +201,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).padding.bottom - 10)
+              SizedBox(height: MediaQuery.of(context).padding.bottom)
             ],
           );
         });
