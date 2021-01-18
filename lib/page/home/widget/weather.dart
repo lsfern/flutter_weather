@@ -67,7 +67,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                                       fontSize: 15,
                                     ),
                                   ),
-                                  Text(data[0].tem,
+                                  Text(data[0].hours[0].tem,
                                       style: TextStyle(
                                         fontSize: 40,
                                       )),

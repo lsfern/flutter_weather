@@ -20,15 +20,17 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      setThemeBrightness(context);
       fetchWeather();
     });
   }
 
   /// 请求天气数据
   void fetchWeather() {
-    context.read<WeatherBloc>().add(WeatherRequested(cityName: "海淀"));
-    // context.read<WeatherBloc>().add(WeatherRequested(cityName: "1000"));
+    // 数据为空才请求
+    if(context.read<WeatherBloc>().state.weatherList.isEmpty){
+      context.read<WeatherBloc>().add(WeatherRequested(cityName: "海淀"));
+      // context.read<WeatherBloc>().add(WeatherRequested(cityName: "1000"));
+    }
   }
 
   @override
@@ -36,7 +38,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
     if (state == AppLifecycleState.resumed) {
       Brightness brightness = Util.getAppBrightness(context);
-      // 系统主题亮度模式已切换，程序内部也需要更换
+      // 系统主题亮度模式已切换，程序内部也需要更换，有延迟
       if ((brightness == Brightness.dark) !=
           context.read<ThemeBloc>().state.dark) {
         setThemeBrightness(context);

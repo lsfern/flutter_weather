@@ -10,6 +10,7 @@ import 'package:flutter_app/bloc/theme/theme_bloc.dart';
 import 'package:flutter_app/bloc/weather/weather_bloc.dart';
 import 'package:flutter_app/generated/l10n.dart';
 import 'package:flutter_app/page/home/home.dart';
+import 'package:flutter_app/splash_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
@@ -121,7 +122,7 @@ class _MyAppState extends State<MyApp> {
                                   brightness: themeState.dark
                                       ? Brightness.dark
                                       : Brightness.light),
-                              home: HomePage(),
+                              home: SplashPage(),
                             )))));
   }
 }
