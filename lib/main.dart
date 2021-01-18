@@ -10,7 +10,7 @@ import 'package:flutter_app/bloc/theme/theme_bloc.dart';
 import 'package:flutter_app/bloc/weather/weather_bloc.dart';
 import 'package:flutter_app/generated/l10n.dart';
 import 'package:flutter_app/page/home/home.dart';
-import 'package:flutter_app/splash_page.dart';
+import 'package:flutter_app/page/splash_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:oktoast/oktoast.dart';
