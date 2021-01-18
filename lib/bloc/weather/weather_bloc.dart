@@ -31,6 +31,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     );
   }
 
+  /// async* 方法必须返回Stream<T> 对象
+  /// async* yield 返回Stream<dynamic>
+  /// async* yield* 调用一个函数并返回Stream<dynamic>
   @override
   Stream<WeatherState> mapEventToState(
     WeatherEvent event,
