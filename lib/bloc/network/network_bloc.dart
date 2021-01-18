@@ -8,7 +8,7 @@ part 'network_event.dart';
 part 'network_state.dart';
 
 class NetworkBloc extends Bloc<NetworkEvent, NetworkState> {
-  NetworkBloc() : super(null);
+  NetworkBloc() : super(NetWorkInitial());
 
   @override
   Stream<NetworkState> mapEventToState(
