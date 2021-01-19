@@ -37,7 +37,8 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       // 系统主题亮度模式已切换，程序内部也需要更换，有延迟
       if ((brightness == Brightness.dark) !=
           context.read<ThemeBloc>().state.dark) {
-        setThemeBrightness(context);
+        context.read<ThemeBloc>().add(ThemeColorChanged(
+            Util.getAppBrightness(context) == Brightness.dark));
       }
     }
   }
@@ -46,12 +47,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-  }
-
-  /// 判断系统是否是深色模式
-  void setThemeBrightness(BuildContext context) {
-    context.read<ThemeBloc>().add(
-        ThemeColorChanged(Util.getAppBrightness(context) == Brightness.dark));
   }
 
   @override
