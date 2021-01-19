@@ -26,11 +26,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   /// 请求天气数据
   void fetchWeather() {
-    // 数据为空才请求
-    if(context.read<WeatherBloc>().state.weatherList.isEmpty){
-      context.read<WeatherBloc>().add(WeatherRequested(cityName: "海淀"));
-      // context.read<WeatherBloc>().add(WeatherRequested(cityName: "1000"));
-    }
+    // TODO 数据为空才请求
   }
 
   @override
