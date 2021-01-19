@@ -15,7 +15,7 @@ class WeatherRepository {
       if (response.statusCode >= 200 && response.statusCode <= 400) {
         weather = Weather.fromJson(response.data);
       }
-      print(jsonEncode(weather));
+      // print(jsonEncode(weather));
     } catch (e) {
       print("get weather failed $e");
     }

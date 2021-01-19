@@ -6,10 +6,9 @@ abstract class NetworkState {
 
   NetworkState({this.connectivityResult});
 }
-class NetWorkInitial extends NetworkState {
 
-  NetWorkInitial()
-      : super(connectivityResult: ConnectivityResult.none);
+class NetWorkInitial extends NetworkState {
+  NetWorkInitial() : super(connectivityResult: ConnectivityResult.none);
 }
 
 class NetWorkChange extends NetworkState {
